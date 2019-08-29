@@ -89,6 +89,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
   @Nullable
   TextDelegate textDelegate;
   private boolean enableMergePaths;
+  private boolean alwaysUseTextGlyphs;
   @Nullable
   private CompositionLayer compositionLayer;
   private int alpha = 255;
@@ -807,7 +808,11 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
   }
 
   public boolean useTextGlyphs() {
-    return textDelegate == null && composition.getCharacters().size() > 0;
+    return alwaysUseTextGlyphs || (textDelegate == null && composition.getCharacters().size() > 0);
+  }
+
+  public void setAlwaysUseTextGlyphs(boolean alwaysUseTextGlyphs) {
+    this.alwaysUseTextGlyphs = alwaysUseTextGlyphs;
   }
 
   public float getScale() {

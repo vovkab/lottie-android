@@ -766,6 +766,15 @@ import static com.airbnb.lottie.RenderMode.HARDWARE;
   }
 
   /**
+   * Forces text rendering to always use glyphs instead of fonts
+   *
+   * Make sure your animation contains all the glyphs that could be used.
+   */
+  public void setAlwaysUseTextGlyphs(boolean alwaysUseTextGlyphs) {
+    lottieDrawable.setAlwaysUseTextGlyphs(alwaysUseTextGlyphs);
+  }
+
+  /**
    * Takes a {@link KeyPath}, potentially with wildcards or globstars and resolve it to a list of
    * zero or more actual {@link KeyPath Keypaths} that exist in the current animation.
    *
